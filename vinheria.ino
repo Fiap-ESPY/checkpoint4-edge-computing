@@ -3,12 +3,11 @@
 CP4 - VINHERIA
 EDGE COMPUTING & COMPUTER SYSTEMS
 Prof. Paulo Marcotti
-Participantes:
-BEATRIZ CORTEZ
-BRUNO ALVES
-GABRIEL AUGUSTO
-GUSTAVO MOURA
-PEDRO HENRIQUE 
+Beatriz Cortez - RM561431
+Bruno Alves - RM563986
+Gabriel Augusto - RM564126
+Gustavo Moura - RM566190
+Pedro Henrique - RM563281
 TEMPERATURA (), UMIDADE(Check) E LUMINOSIDADE- LDR(check)
 --------------------------------------------
 */
