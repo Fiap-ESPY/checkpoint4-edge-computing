@@ -8,6 +8,7 @@ BEATRIZ CORTEZ
 BRUNO ALVES
 GABRIEL AUGUSTO
 GUSTAVO MOURA
+PEDRO HENRIQUE 
 TEMPERATURA (), UMIDADE(Check) E LUMINOSIDADE- LDR(check)
 --------------------------------------------
 */
@@ -16,16 +17,11 @@ TEMPERATURA (), UMIDADE(Check) E LUMINOSIDADE- LDR(check)
 #include <HTTPClient.h>
 #include <DHT.h>
 
-
-
-
  // Pino GPIO35 do ESP32 para o DHT22
 #define DHTTYPE DHT22 // Tipo de sensor DHT (DHT22)
 DHT dht(15, DHTTYPE);
 
-
 #define LDR_PIN 34  //LDR com resistor na porta Digital3
-
 
 WiFiClient client; 
 HTTPClient http;
@@ -36,15 +32,13 @@ const char* password = ""; // Senha da rede Wi-Fi
 const char* apiKey = "C7NRHQN984DC4CQJ"; // Write API Key
 String server = "http://api.thingspeak.com/update?api_key=C7NRHQN984DC4CQJ"; // Servidor ThingSpeak
 
-
-
 void setup() {
   Serial.begin(115200);
 
   WiFi.begin(ssid, password);
   Serial.println("Conectando Wifi...");
 
-  while(WiFi.status() != WL_CONNECTED){
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
@@ -55,21 +49,18 @@ void setup() {
 
   pinMode(LDR_PIN, INPUT);
 
-
   dht.begin();
 }
 
 
 void loop() {
-  if(WiFi.status() == WL_CONNECTED){
+  if (WiFi.status() == WL_CONNECTED) {
 
     float temperature = dht.readTemperature();       // To store the values of tempreature
     float humidity = dht.readHumidity();    
     float luminosity = map(analogRead(LDR_PIN), 0, 4095, 0, 100);
 
-
-
-    if(isnan(temperature) || isnan(humidity)){
+    if (isnan(temperature) || isnan(humidity)) {
       Serial.println(temperature);
       return;
     }
@@ -80,23 +71,18 @@ void loop() {
 
     int httpResponseCode = http.GET();
 
-
-    if(httpResponseCode > 0){
+    if (httpResponseCode > 0) {
       Serial.print("Código HTTP: ");
       Serial.println(httpResponseCode);
       String payload = http.getString();
       Serial.println(payload);
-    }
-    else{
+    } else{
       Serial.print("Código de erro: ");
       Serial.println(httpResponseCode);
     }
 
     http.end();
-
-
-  }
-  else{
+  } else {
     Serial.println("Wifi desconectado");
   }
 
