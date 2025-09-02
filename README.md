@@ -29,6 +29,12 @@ Os dados coletados são enviados para a nuvem, integrados ao **ThingSpeak**, per
 
 ---
 
+## Link Simulador 
+
+![Link do Wokwi](https://wokwi.com/projects/440942671621182465)
+
+---
+
 ## 👥 Autores  
  
 - Beatriz Cortez - RM561431
@@ -40,3 +46,4 @@ Os dados coletados são enviados para a nuvem, integrados ao **ThingSpeak**, per
 - Gustavo Moura - RM566190
  
 - Pedro Henrique - RM563281
+
